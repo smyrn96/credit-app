@@ -3,42 +3,40 @@
 :root {
   --orange-color: #009327;
   --white-color: #ffffff;
-  --black-color: #171717; 
+  --black-color: #171717;
   --red-color: #dc2626;
   --secondary-color: #78716c;
-  --drop-shadow: box-shadow: 0px 2px 4px 2px #00000026;
-
-  
+  --drop-shadow: 0px 2px 4px 2px #00000026;
 }
 
 body {
-  font-family: 'Inter', sans-serif;  
+  font-family: "Inter", sans-serif;
 }
 
-input::-moz-placeholder { /*  Firefox */
+input::-moz-placeholder {
+  /*  Firefox */
   font-weight: 400;
   font-size: 16px;
   color: var(--secondary-color);
 }
 
-input::-webkit-input-placeholder { /* Chrome */
+input::-webkit-input-placeholder {
+  /* Chrome */
   font-weight: 400;
   font-size: 16px;
   color: var(--secondary-color);
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   font-weight: 400;
   font-size: 16px;
   color: var(--secondary-color);
 }
 
-:-ms-input-placeholder { /* Microsoft Edge */
+:-ms-input-placeholder {
+  /* Microsoft Edge */
   font-weight: 400;
   font-size: 16px;
   color: var(--secondary-color);
 }
-
-
-
-

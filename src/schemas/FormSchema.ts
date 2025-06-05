@@ -2,7 +2,9 @@ import * as Yup from "yup";
 
 export const stepSchemas = [
   Yup.object({
-    fullName: Yup.string().required("Full name is required"),
+    fullName: Yup.string()
+      .required("Full name is required")
+      .max(50, "Full name must be at most 50 characters"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     date: Yup.string()
       .required("Date of birth is required")
@@ -29,7 +31,10 @@ export const stepSchemas = [
   Yup.object({
     income: Yup.string()
       .required("Income is required")
-      .matches(/^\d+$/, "Income must be a valid number"),
+      .matches(
+        /^(?:[1-9]\d*|0)?(?:\.\d+)?$/,
+        "Income must be a valid positive number"
+      ),
     employmentType: Yup.string().required("Please select an employment status"),
     acceptTerms: Yup.boolean().oneOf(
       [true, false],

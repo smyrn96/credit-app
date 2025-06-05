@@ -1,3 +1,5 @@
+import type { AxiosResponse } from "axios";
+
 export type EmploymentType = "full-time" | "part-time" | "unemployed";
 
 export type ApplicationType = {
@@ -8,3 +10,8 @@ export type ApplicationType = {
   employmentType: EmploymentType | null;
   income: string | null;
 };
+
+export type ApplicationResponseType = Promise<AxiosResponse<ApplicationType[]>>;
+export type SingleApplicationResponseType = Promise<
+  AxiosResponse<ApplicationType>
+>;
