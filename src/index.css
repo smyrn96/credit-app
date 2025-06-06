@@ -4,12 +4,12 @@
   --success-color: #009327;
   --white-color: #ffffff;
   --black-color: #171717;
-  --red-color: #dc2626;
+  --warning-color: #dc2626;
   --secondary-color: #78716c;
   --drop-shadow: 0px 2px 4px 2px #00000026;
 
   --toastify-color-success: var(--success-color);
-  --toastify-color-error: var(--red-color);
+  --toastify-color-error: var(--warning-color);
 }
 
 body {

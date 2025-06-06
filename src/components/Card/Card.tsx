@@ -52,7 +52,7 @@ const Card: React.FC<CardProps> = ({ application }) => {
             </div>
           </div>
           <div
-            className="bg-[var(--red-color)] h-[40px] w-[40px] rounded-full flex justify-center items-center"
+            className="bg-[var(--warning-color)] h-[40px] w-[40px] rounded-full flex justify-center items-center"
             onClick={() => (id ? deleteApp(id) : "")}
           >
             <TrashIcon />

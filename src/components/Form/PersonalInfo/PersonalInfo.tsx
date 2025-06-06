@@ -1,13 +1,13 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useContextProvider } from "../../context/constants";
-import { stepSchemas } from "../../schemas/FormSchema";
-import MainButton from "../Buttons/MainButton";
+import { useContextProvider } from "../../../context/constants";
+import { stepSchemas } from "../../../schemas/FormSchema";
+import MainButton from "../../Buttons/MainButton";
 import {
   dateToISO,
   isDDMMYYYYFormat,
   isInitalState,
   isoToDate,
-} from "../../helpers/helpers";
+} from "../../../helpers/helpers";
 
 type PersonalInfoProps = {
   buttonText: string;
@@ -73,12 +73,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 </label>
                 <Field
                   name="fullName"
+                  id="fullName"
                   type="text"
                   placeholder="Jane Smith"
                   style={{
                     borderColor:
                       errors.fullName && touched.fullName
-                        ? "var(--red-color)"
+                        ? "var(--warning-color)"
                         : "var(--secondary-color)",
                   }}
                   className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
@@ -86,7 +87,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 <ErrorMessage
                   name="fullName"
                   component="div"
-                  className="text-[var(--red-color)] text-[13px] font-normal"
+                  className="text-[var(--warning-color)] text-[13px] font-normal"
                 />
               </div>
 
@@ -99,12 +100,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 </label>
                 <Field
                   name="email"
+                  id="email"
                   type="email"
                   placeholder="jane.smith@mail.com"
                   style={{
                     borderColor:
                       errors.email && touched.email
-                        ? "var(--red-color)"
+                        ? "var(--warning-color)"
                         : "var(--secondary-color)",
                   }}
                   className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
@@ -112,7 +114,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 <ErrorMessage
                   name="email"
                   component="div"
-                  className="text-[var(--red-color)] text-[13px] font-normal"
+                  className="text-[var(--warning-color)] text-[13px] font-normal"
                 />
               </div>
 
@@ -125,12 +127,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 </label>
                 <Field
                   name="date"
+                  id="date"
                   type="text"
                   placeholder="30-10-2000"
                   style={{
                     borderColor:
                       errors.date && touched.date
-                        ? "var(--red-color)"
+                        ? "var(--warning-color)"
                         : "var(--secondary-color)",
                   }}
                   className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
@@ -138,7 +141,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 <ErrorMessage
                   name="date"
                   component="div"
-                  className="text-[var(--red-color)] text-[13px] font-normal"
+                  className="text-[var(--warning-color)] text-[13px] font-normal"
                 />
               </div>
             </div>

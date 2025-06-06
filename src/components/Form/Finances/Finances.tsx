@@ -1,12 +1,12 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useContextProvider } from "../../context/constants";
-import { stepSchemas } from "../../schemas/FormSchema";
-import MainButton from "../Buttons/MainButton";
-import type { EmploymentType } from "../../types/Application";
+import { useContextProvider } from "../../../context/constants";
+import { stepSchemas } from "../../../schemas/FormSchema";
+import MainButton from "../../Buttons/MainButton";
+import type { EmploymentType } from "../../../types/Application";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createApplication } from "../../api/services/application.services";
+import { createApplication } from "../../../api/services/application.services";
 import { ClipLoader } from "react-spinners";
-import { initialState } from "../../constants/constants";
+import { initialState } from "../../../constants/constants";
 import { toast } from "react-toastify";
 
 type FinancesProps = {
@@ -78,12 +78,13 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                 </label>
                 <Field
                   name="income"
+                  id="income"
                   type="text"
                   placeholder="Your monthly net income"
                   style={{
                     borderColor:
                       errors.income && touched.income
-                        ? "var(--red-color)"
+                        ? "var(--warning-color)"
                         : "var(--secondary-color)",
                   }}
                   className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
@@ -91,7 +92,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                 <ErrorMessage
                   name="income"
                   component="div"
-                  className="text-[var(--red-color)] text-[13px] font-normal"
+                  className="text-[var(--warning-color)] text-[13px] font-normal"
                 />
               </div>
 
@@ -133,7 +134,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                 <ErrorMessage
                   name="employmentType"
                   component="div"
-                  className="text-[var(--red-color)] text-[13px] font-normal"
+                  className="text-[var(--warning-color)] text-[13px] font-normal"
                 />
               </div>
               {isPending && (
@@ -152,6 +153,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
               <div className="flex items-center gap-2">
                 <Field
                   type="checkbox"
+                  id="acceptTerms"
                   name="acceptTerms"
                   className="w-[14px] w-[14px] text-[var(--black-color)] rounded-sm"
                 />
@@ -165,7 +167,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
               <ErrorMessage
                 name="acceptTerms"
                 component="div"
-                className="text-[var(--red-color)] text-[13px] font-normal"
+                className="text-[var(--warning-color)] text-[13px] font-normal"
               />
 
               <MainButton
