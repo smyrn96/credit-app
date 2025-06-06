@@ -2,8 +2,10 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
-const Applications = lazy(() => import("./pages/Applications"));
-const NewApplication = lazy(() => import("./pages/NewApplication"));
+const Applications = lazy(() => import("./pages/Applications/Applications"));
+const NewApplication = lazy(
+  () => import("./pages/NewApplication/NewApplication")
+);
 
 function App() {
   return (

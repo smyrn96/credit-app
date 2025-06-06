@@ -38,7 +38,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         {hasHeader && (
           <div className="flex flex-row items-center gap-2">
             {Icon && (
-              <button className=" cursor-pointer" onClick={iconAction}>
+              <button
+                className=" cursor-pointer"
+                onClick={iconAction}
+                data-testid="icon-button"
+              >
                 <Icon />
               </button>
             )}

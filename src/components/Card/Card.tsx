@@ -42,6 +42,7 @@ const Card: React.FC<CardProps> = ({ application }) => {
         <div
           style={{ boxShadow: "var(--drop-shadow)" }}
           className="flex flex-row justify-between items-center shadow-[var(--drop-shadow)] p-[16px] bg-[var(--white-color)] rounded-lg mb-4"
+          data-testid="application-card"
         >
           <div className="flex flex-col gap-1">
             <div className="font-semibold text-base text-[var(--black-color)]">
@@ -54,6 +55,7 @@ const Card: React.FC<CardProps> = ({ application }) => {
           <div
             className="bg-[var(--warning-color)] h-[40px] w-[40px] rounded-full flex justify-center items-center"
             onClick={() => (id ? deleteApp(id) : "")}
+            data-testid="trash-icon"
           >
             <TrashIcon />
           </div>

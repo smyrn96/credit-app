@@ -105,7 +105,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                   <Field
                     type="radio"
                     name="employmentType"
-                    value="Full time"
+                    value="full-time"
                     className="w-[14px] h-[14px] text-[var(--black-color)]"
                   />
                   Full time
@@ -115,7 +115,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                   <Field
                     type="radio"
                     name="employmentType"
-                    value="Part time"
+                    value="part-time"
                     className="w-[14px] h-[14px] text-[var(--black-color)]"
                   />
                   Part time
@@ -125,7 +125,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                   <Field
                     type="radio"
                     name="employmentType"
-                    value="Unemployed"
+                    value="unemployed"
                     className="w-[14px] h-[14px] text-[var(--black-color)]"
                   />
                   Unemployed

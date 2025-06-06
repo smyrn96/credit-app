@@ -1,9 +1,9 @@
-import MainLayout from "../components/Layout/MainLayout";
+import MainLayout from "../../components/Layout/MainLayout";
 import { useState } from "react";
-import BackButton from "../assets/icons/back_button.svg";
+import BackButton from "../../assets/icons/back_button.svg";
 import { useNavigate } from "react-router-dom";
-import PersonalInfo from "../components/Form/PersonalInfo/PersonalInfo";
-import Finances from "../components/Form/Finances/Finances";
+import PersonalInfo from "../../components/Form/PersonalInfo/PersonalInfo";
+import Finances from "../../components/Form/Finances/Finances";
 
 const NewApplication = () => {
   const [step, setStep] = useState(0);

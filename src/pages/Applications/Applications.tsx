@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../components/Layout/MainLayout";
+import MainLayout from "../../components/Layout/MainLayout";
 import { useQuery } from "@tanstack/react-query";
-import { getApplications } from "../api/services/application.services";
-import Card from "../components/Card/Card";
+import { getApplications } from "../../api/services/application.services";
+import Card from "../../components/Card/Card";
 import { ClipLoader } from "react-spinners";
 
 const Applications = () => {
