@@ -2,7 +2,12 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useContextProvider } from "../../context/constants";
 import { stepSchemas } from "../../schemas/FormSchema";
 import MainButton from "../Buttons/MainButton";
-import { dateToISO, isDDMMYYYYFormat, isoToDate } from "../../helpers/helpers";
+import {
+  dateToISO,
+  isDDMMYYYYFormat,
+  isInitalState,
+  isoToDate,
+} from "../../helpers/helpers";
 
 type PersonalInfoProps = {
   buttonText: string;
@@ -49,8 +54,10 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
       validationSchema={stepSchemas[0]}
       onSubmit={submitHandler}
     >
-      {({ isSubmitting, isValid, dirty }) => {
-        const isButtonDisabled = isSubmitting || !isValid || !dirty;
+      {({ isSubmitting, isValid, dirty, errors, touched, initialValues }) => {
+        const isButtonDisabled =
+          isSubmitting || !isValid || (!dirty && isInitalState(initialValues));
+
         return (
           <Form
             className="mt-4 flex flex-col justify-between pb-6"
@@ -68,7 +75,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                   name="fullName"
                   type="text"
                   placeholder="Jane Smith"
-                  className="w-full border-[2px] border-[var(--secondary-color)] px-[16px] py-[12px] rounded-lg custom-placeholder"
+                  style={{
+                    borderColor:
+                      errors.fullName && touched.fullName
+                        ? "var(--red-color)"
+                        : "var(--secondary-color)",
+                  }}
+                  className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
                 />
                 <ErrorMessage
                   name="fullName"
@@ -88,7 +101,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                   name="email"
                   type="email"
                   placeholder="jane.smith@mail.com"
-                  className="w-full border-[2px] border-[var(--secondary-color)] px-[16px] py-[12px] rounded-lg custom-placeholder"
+                  style={{
+                    borderColor:
+                      errors.email && touched.email
+                        ? "var(--red-color)"
+                        : "var(--secondary-color)",
+                  }}
+                  className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
                 />
                 <ErrorMessage
                   name="email"
@@ -108,7 +127,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                   name="date"
                   type="text"
                   placeholder="30-10-2000"
-                  className="w-full border-[2px] border-[var(--secondary-color)] px-[16px] py-[12px] rounded-lg custom-placeholder"
+                  style={{
+                    borderColor:
+                      errors.date && touched.date
+                        ? "var(--red-color)"
+                        : "var(--secondary-color)",
+                  }}
+                  className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
                 />
                 <ErrorMessage
                   name="date"

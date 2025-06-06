@@ -5,6 +5,9 @@ import MainButton from "../Buttons/MainButton";
 import type { EmploymentType } from "../../types/Application";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createApplication } from "../../api/services/application.services";
+import { ClipLoader } from "react-spinners";
+import { initialState } from "../../constants/constants";
+import { toast } from "react-toastify";
 
 type FinancesProps = {
   buttonText: string;
@@ -20,15 +23,18 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
   const mutation = useMutation({
     mutationFn: createApplication,
     onSuccess: () => {
+      setData(initialState);
+      toast.success("Application submitted successfully!");
       buttonAction();
       queryClient.invalidateQueries({ queryKey: ["applications"] });
     },
-    onError: () => {
+    onError: (error) => {
       console.log("Error creating a new application");
+      toast.error(`Submission failed: ${error.message}`);
     },
   });
 
-  const { mutate } = mutation;
+  const { mutate: createApp, isPending } = mutation;
 
   const submitHandler = (values: {
     income: string;
@@ -41,9 +47,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
       employmentType: emplymentTypeInput as EmploymentType,
     };
 
-    mutate(requestData);
-
-    setData(requestData);
+    createApp(requestData);
   };
 
   return (
@@ -56,7 +60,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
       validationSchema={stepSchemas[1]}
       onSubmit={submitHandler}
     >
-      {({ isSubmitting, isValid, dirty, values }) => {
+      {({ isSubmitting, isValid, dirty, values, errors, touched }) => {
         const isButtonDisabled =
           isSubmitting || !isValid || !dirty || !values.acceptTerms;
         return (
@@ -76,7 +80,13 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                   name="income"
                   type="text"
                   placeholder="Your monthly net income"
-                  className="w-full border-[2px] border-[var(--secondary-color)] px-[16px] py-[12px] rounded-lg custom-placeholder"
+                  style={{
+                    borderColor:
+                      errors.income && touched.income
+                        ? "var(--red-color)"
+                        : "var(--secondary-color)",
+                  }}
+                  className="w-full border-[2px] border px-[16px] py-[12px] rounded-lg custom-placeholder"
                 />
                 <ErrorMessage
                   name="income"
@@ -126,6 +136,17 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                   className="text-[var(--red-color)] text-[13px] font-normal"
                 />
               </div>
+              {isPending && (
+                <div className="flex justify-center items-center mt-4">
+                  <ClipLoader
+                    color={"var(--success-color)"}
+                    loading={isPending}
+                    size={100}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                  />
+                </div>
+              )}
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">

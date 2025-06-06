@@ -26,3 +26,12 @@ export const isDDMMYYYYFormat = (dateStr: string): boolean => {
   const regex = /^\d{2}-\d{2}-\d{4}$/;
   return regex.test(dateStr);
 };
+
+export const isInitalState = (initialState: {
+  fullName: string;
+  email: string;
+  date: string;
+}): boolean => {
+  const { fullName, date, email } = initialState;
+  return fullName === "" && date === "" && email === "";
+};
