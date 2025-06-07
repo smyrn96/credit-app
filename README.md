@@ -29,6 +29,7 @@ A credit application web app built with React and Vite featuring a multi-step wi
 ## Technology Stack
 
 - **React** (v19.1.0) with **Vite** for fast bundling and development
+- **React Context API** for global state management across components
 - **Formik** for form state management and validation
 - **Yup** for schema-based form validation
 - **React Query** (`@tanstack/react-query`) for data fetching and caching
