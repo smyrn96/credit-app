@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteApplication } from "../../api/services/application.services";
 import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
+import { employmentTypeToText } from "../../helpers/helpers";
 
 type CardProps = {
   application: ApplicationType;
@@ -11,6 +12,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ application }) => {
   const { email, employmentType, income, id } = application;
+  const employmentTypeText = employmentTypeToText(employmentType ?? "");
 
   const queryClient = useQueryClient();
 
@@ -41,7 +43,7 @@ const Card: React.FC<CardProps> = ({ application }) => {
       ) : (
         <div
           style={{ boxShadow: "var(--drop-shadow)" }}
-          className="flex flex-row justify-between items-center shadow-[var(--drop-shadow)] p-[16px] bg-[var(--white-color)] rounded-lg mb-4"
+          className="flex flex-row justify-between items-center shadow-[var(--drop-shadow)] p-[16px] bg-[var(--white-color)] rounded-lg max-w-[400px] md:min-w-[350px] lg:min-w-[350px]"
           data-testid="application-card"
         >
           <div className="flex flex-col gap-1">
@@ -49,7 +51,7 @@ const Card: React.FC<CardProps> = ({ application }) => {
               {email}
             </div>
             <div className="flex flex-row text-xs text-[var(--secondary-color)] font-medium gap-1">
-              <div>{employmentType}</div> - <div>{income} €</div>
+              <div>{employmentTypeText}</div> - <div>{income} €</div>
             </div>
           </div>
           <div

@@ -1,3 +1,5 @@
+import type { EmploymentType } from "../types/Application";
+
 export const dateToISO = (input: string) => {
   const [day, month, year] = input.split("-").map(Number);
   const utcDate = new Date(
@@ -34,4 +36,15 @@ export const isInitalState = (initialState: {
 }): boolean => {
   const { fullName, date, email } = initialState;
   return fullName === "" && date === "" && email === "";
+};
+
+export const employmentTypeToText = (emplType: EmploymentType | "") => {
+  if (emplType === "") return emplType;
+  if (emplType === "unemployed")
+    return emplType.charAt(0).toUpperCase() + emplType.slice(1);
+
+  const replaced = emplType.replace(/-/g, " ");
+  const result = replaced.charAt(0).toUpperCase() + replaced.slice(1);
+
+  return result;
 };

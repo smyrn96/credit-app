@@ -69,7 +69,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
             style={{ height: "calc(100% - 2.5rem)" }}
           >
             <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px]">
                 <label
                   htmlFor="income"
                   className="text-base font-semibold text-[var(--black-color)]"
@@ -96,7 +96,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px]">
                 <label className="text-base font-semibold text-[var(--black-color)]">
                   Employment Status
                 </label>
@@ -150,7 +150,7 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
               )}
             </div>
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 md:justify-center lg:justify-center">
                 <Field
                   type="checkbox"
                   id="acceptTerms"
@@ -170,11 +170,13 @@ const Finances: React.FC<FinancesProps> = ({ buttonText, buttonAction }) => {
                 className="text-[var(--warning-color)] text-[13px] font-normal"
               />
 
-              <MainButton
-                buttonType="submit"
-                isDisabledButton={isButtonDisabled}
-                buttonText={buttonText}
-              />
+              <div className="flex items-center justify-center">
+                <MainButton
+                  buttonType="submit"
+                  isDisabledButton={isButtonDisabled}
+                  buttonText={buttonText}
+                />
+              </div>
             </div>
           </Form>
         );

@@ -25,7 +25,7 @@ const Applications = () => {
         navigate("/applications/new");
       }}
     >
-      <div className="mt-4 ">
+      <div className="mt-4 flex flex-col flex-wrap md:max-h-[500px] md:content-start lg:content-start lg:max-h-[500px] gap-4">
         {isLoading && (
           <div className="flex justify-center items-center mt-4">
             <ClipLoader

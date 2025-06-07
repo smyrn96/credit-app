@@ -8,6 +8,7 @@ import Finances from "../../components/Form/Finances/Finances";
 const NewApplication = () => {
   const [step, setStep] = useState(0);
   const navigate = useNavigate();
+  const isFormStep = step === 0 || step === 1;
 
   const incrementStep = () => {
     setStep(step + 1);
@@ -57,6 +58,7 @@ const NewApplication = () => {
       headerText={headerText}
       buttonText={buttonText}
       isDisabledButton={false}
+      isInForm={isFormStep}
       Icon={Icon}
       iconAction={iconAction}
       buttonAction={buttonAction}

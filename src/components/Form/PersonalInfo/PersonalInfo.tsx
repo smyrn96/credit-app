@@ -64,7 +64,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             style={{ height: "calc(100% - 2.5rem)" }}
           >
             <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px]">
                 <label
                   htmlFor="fullName"
                   className="text-base font-semibold text-[var(--black-color)]"
@@ -91,7 +91,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px]">
                 <label
                   htmlFor="email"
                   className="text-base font-semibold text-[var(--black-color)]"
@@ -118,7 +118,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 max-w-[400px]">
                 <label
                   htmlFor="date"
                   className="text-base font-semibold text-[var(--black-color)]"
@@ -145,12 +145,13 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                 />
               </div>
             </div>
-
-            <MainButton
-              buttonType="submit"
-              isDisabledButton={isButtonDisabled}
-              buttonText={buttonText}
-            />
+            <div className="flex items-center justify-center">
+              <MainButton
+                buttonType="submit"
+                isDisabledButton={isButtonDisabled}
+                buttonText={buttonText}
+              />
+            </div>
           </Form>
         );
       }}

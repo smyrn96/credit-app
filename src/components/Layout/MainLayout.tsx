@@ -8,6 +8,7 @@ type MainLayoutProps = {
   Icon?: string;
   iconAction?: () => void;
   isDisabledButton: boolean;
+  isInForm?: boolean;
   children: ReactNode;
 };
 
@@ -15,6 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   headerText,
   buttonText,
   isDisabledButton,
+  isInForm = false,
   Icon,
   buttonAction,
   iconAction,
@@ -33,7 +35,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     : {};
 
   return (
-    <div className="h-screen w-full flex flex-col justify-between p-6">
+    <div
+      className="min-h-screen h-auto w-full flex flex-col justify-between p-6"
+      style={{ height: isInForm ? "100vh" : "auto" }}
+    >
       <div className="h-full" style={hasHeaderStyle}>
         {hasHeader && (
           <div className="flex flex-row items-center gap-2">
@@ -54,7 +59,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         {children}
       </div>
       {hasButton && (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mt-6">
           <MainButton
             buttonType="button"
             buttonText={buttonText}
