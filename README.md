@@ -37,11 +37,42 @@ A credit application web app built with React and Vite featuring a multi-step wi
 - **Tailwind CSS** for styling
 - **React Spinners** for loading indicators
 - **React Toastify** for toast notifications
+- **Vitest** and **@testing-library/react** for testing and test utilities
 
 ---
+## Deployment
+   Open your browser and navigate to
+   [credit-app](https://credit-app-six.vercel.app/)
+
 ## Run the Application
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/smyrn96/credit-app.git
    cd credit-application
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+
+3. Create a `.env` file in the root of your project (if it doesn't exist):
+   ```bash
+   VITE_MOCK_API_URL=https://your-mockapi-url.com
+
+4. Open your browser and navigate to
+   ```bash
+   http://localhost:3000
+
+## Testing
+
+Uses **Vitest** and **React Testing Library** for unit and integration tests.
+
+### Run tests with:
+
+```bash
+npm run test
+# or
+yarn test
+
