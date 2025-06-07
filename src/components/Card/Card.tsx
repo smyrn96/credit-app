@@ -54,13 +54,13 @@ const Card: React.FC<CardProps> = ({ application }) => {
               <div>{employmentTypeText}</div> - <div>{income} €</div>
             </div>
           </div>
-          <div
-            className="bg-[var(--warning-color)] h-[40px] w-[40px] rounded-full flex justify-center items-center"
+          <button
+            className="bg-[var(--warning-color)] h-[40px] w-[40px] rounded-full flex justify-center items-center cursor-pointer"
             onClick={() => (id ? deleteApp(id) : "")}
             data-testid="trash-icon"
           >
             <TrashIcon />
-          </div>
+          </button>
         </div>
       )}
     </>
